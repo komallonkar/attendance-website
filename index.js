@@ -1,49 +1,14 @@
-//initialize the textbox
+
 var getsessionId = document.getElementById('session');
 var getqrCode = document.getElementById('qrcode');
-// var getdate = document.getElementById('Date');
-// var gettime = document.getElementById('Time');
+
 var getdeptId = document.getElementById('department');
-//var getstatus = document.getElementById('Status');
-// var getlatitude = document.getElementById('latitude');
-// var getlongitude = document.getElementById('longitude');
 
-//var getsubjectId = document.getElementById('subjectid');
-
-//get Date
 var d = new Date();
 date = d.toISOString().slice(0, 10);
 
 //get time in format HH:MM:SS
 time = d.toTimeString().slice(0,8);
-// var today = new Date();
-// var dd = today.getDate();
-
-// var mm = today.getMonth()+1; 
-
-// var yyyy = today.getFullYear();
-// if(dd<10) 
-// {
-//     dd='0'+dd;
-// } 
-
-// if(mm<10) 
-// {
-//     mm='0'+mm;
-// } 
-// var date =yyyy+'-'+mm+'-'+dd;
-// h = today.getHours(),
-// m = today.getMinutes();
-// s = today.getSeconds();
-// var time =h+':'+m+':'+s; 
-//        var for_expire_m = m + 5;
-//        var for_expire_h = h;
-//        if(for_expire>59){
-//          for_expire_m=0;
-//          for_expire_h=h+1;
-//        }
-//        var end_time=h+':'+for_expire;
-
 
 
 var qrcode = new QRCode(document.getElementById('qr_display'));
@@ -61,8 +26,7 @@ function add_to_count(count,Session,subject) {
       console.log(html);
     }
   });
-  // console.log(c);
-  // console.log(session);
+ 
 }
 
 
@@ -70,20 +34,15 @@ function generateQR() {
     //get the actual content in textbox
     var sessionId = getsessionId.value;
     var qrCode = getqrCode.value;
-    // var date = getdate.value; 
-    // var time = gettime.value;
+   
 
     var deptId = getdeptId.value;
-    //var status = getstatus.value; 
-    // var latitude = getlatitude.value;
-    // var longitude = getlongitude.value;
+   
     var e = document.getElementById("subj_options");
     var getsubjectId = e.options[e.selectedIndex].value;
     var subjectId = getsubjectId; 
     var dataString= 'SessionID='+sessionId +'&qrcode='+qrCode+'&qrdate='+date+'&DepartrQID='+deptId+'&SubjectQID='+subjectId;
     var countString= 'SessionID='+sessionId +'&qrcode='+qrCode+'&DepartrQID='+deptId+'&SubjectQID='+subjectId;
-    
-
     if(sessionId=='' || qrCode=='' || deptId=='' || subjectId==''){
       alert('Enter every detail');
     }
@@ -105,8 +64,7 @@ var session = document.getElementById('session').value;
         success: function (html) {
           console.log(html);
           var a = $.parseJSON(html);
-          // console.log(a[a.length]);
-          // console.log(a[(a.length)-1]);
+          
           var l = a.length;
           var c = 0;
           var sub = a[l - 2];

@@ -11,8 +11,8 @@ if (isset($_GET['submit'])) {
     // $subjectid = $_GET['subject'];
     // echo "\n".$subjectid; 
 }
-echo
-print_r($_SESSION);
+
+// print_r($_SESSION);
 //  echo "\n". $subjectid;
 // get_count($id,$subjectid,$deptid);
 
@@ -64,7 +64,7 @@ print_r($_SESSION);
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
     <link href="https:fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -72,6 +72,7 @@ print_r($_SESSION);
 </head>
 
 <body>
+
     <nav class="nav-class">
         <div class="logo-for-attendance">
             <h4>ATTENDANCE</h4>
@@ -79,16 +80,13 @@ print_r($_SESSION);
         <ul class="nav-links">
             <li><a href="dashboard.php">Menu |</a></li>
             <li>
-                <a href="qr.html"> Generate QR Code |</a>
+                <a href="qr.html">Generate QR Code |</a>
             </li>
             <li><a href="logout.php">Log Out</a></li>
-        </ul>
-        <div class="welcome">
 
-            <li>
-                <p class="welcomemsg">Welcome <?php echo $_SESSION['name']; ?> !</p>
-            </li>
-        </div>
+
+        </ul>
+
     </nav>
 
     <div class="container-login100" style="background-image: url('images/bg5.jpg');">
@@ -102,7 +100,7 @@ print_r($_SESSION);
                     <!-- </form> -->
                     <form action="" method="post">
                         <div class="selectcontainer">
-                            <select name="subject" id="subj_options" for="Select Subject" onchange="m()">
+                            <select name="subject" id="subj_options" for="Select Subject" onchange="callme()">
                                 <option disabled selected>Select Subject</option>
                                 <?php
                                 include "connect.php";  // Using database connection file here
@@ -118,6 +116,7 @@ print_r($_SESSION);
 
                                 ?>
                             </select>
+                            <button style="margin:5px; text-decoration:underline;" onclick="reset()">click to select other sub</button>
                             <?php
                             if (isset($_POST['submit'])) {
                                 if (!empty($_POST['subject'])) {
@@ -129,11 +128,24 @@ print_r($_SESSION);
                             ?>
                             <!-- <input type="submit" name="submit" class="dropbtn" value="Get Result"></input> -->
 
-                            <div class="hiddenDIV">
-                            
-                            
-                            </div>
 
+
+
+
+                        </div>
+                        <div id="hiddenDIV" class="DIV">
+                            <div class="det">
+
+                                <p class="profname"> Prof. Name:<?php echo $_SESSION['name']; ?></p>
+                                <p class="datetime">
+                                    Generarted on:<?php echo date("d/m/y"); ?> Time :<?php echo date("h:i:sa"); ?>
+                                </p>
+
+                            </div>
+                            <div id="next-div">
+
+
+                            </div>
 
 
                         </div>

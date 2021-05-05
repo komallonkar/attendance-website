@@ -83,10 +83,10 @@ if ($_SESSION["id"] == '') {
 
           <!-- <div class="card 4">
             <div class="card_image">
-              <a class="addman-link" href="#"><img src="./images/building.png" /></a>
+              <a class="addman-link" href="list.php"><img src="./images/building.png" /></a>
             </div>
             <div class="card_title title-black">
-              <p></p>
+              <p>List of students</p>
             </div>
           </div> -->
         </div>

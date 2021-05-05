@@ -83,13 +83,15 @@ if ($_SESSION['isteacher'] == 'true') {
                 if ($resultsess = mysqli_query($connection, $sessioniddef)) {
                   $rowres = mysqli_fetch_array($resultsess);
                   if ($rowres > 1)
-                    $val = $rowres[0] + 1;
+                    $val = $rowres[0] ;
                   else {
                     // echo 0;
 
                     $val = 1110;
+
                   }
                   // echo $rowres[0];
+                  
                 }
 
 
